@@ -36,15 +36,6 @@ def Coulombs_force(pos_p: np.float64, pos_e: np.float64, charge_p: float, charge
     # Tillämpar Coulombs lag
     return ((k * charge_p * charge_e) / r**2) * r_hat
 
-# Alternativ implementation av Coulombs kraftberäkning
-def Coulombs_force2(pos_p: np.float64, pos_e: np.float64, charge_p: float, charge_e: float) -> np.float64:
-    r_vector: np.float64 = pos_e - pos_p
-    r: float = np.linalg.norm(r_vector)
-    r_hat: np.float64 = r_vector / r
-
-    # Tillämpar Coulombs lag
-    return ((k * charge_p * charge_e) / r**2) * r_hat
-
 # Leapfrog-metoden för att stegvis uppdatera positioner och hastigheter
 def leapfrog_step(position_proton, position_electron, velocity_proton, velocity_electron, proton_charge, electron_charge, dt):
     # Beräknar kraften på varje partikel
